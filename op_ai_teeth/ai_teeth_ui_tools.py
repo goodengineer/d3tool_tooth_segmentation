@@ -626,7 +626,7 @@ class AITeeth_UI_Tools():
                         screen_d1 = (mouse_v - screen_1).length
                         screen_dv = (mouse_v - screen_v).length
 
-                        #TODO, decid how to handle when very very close to vertcies
+                        #TODO, decide how to handle when very very close to vertices
                         if 0 < d0 <= 1 and screen_d0 < 20:
                             self.hovered_near = ['NON_MAN_ED', (close_eds[0], self.mx*inter_0)]
                             return
@@ -1198,7 +1198,7 @@ class AITeeth_UI_Tools():
         if len(overflowed_pathces):
             #regrow each patch and record the level of each growth ring
             
-            #regrow each patch using the salience_vert large island and record teh level of each growth ring
+            #regrow each patch using the salience_vert large island and record the level of each growth ring
             
             print('There are overflowed patches')
             for p in overflowed_pathces: 
@@ -1597,9 +1597,9 @@ class AITeeth_UI_Tools():
             #Remove CurveNode from SplineNetwork
             connected_points = self.spline_net.remove_point(curve_point, disconnect)  #returns the new points on either side, connected or not
             print('there are %i connected points')
-            for node in connected_points:  #need all point handles updated first, becuae of how auto handles use neighboring points
+            for node in connected_points:  #need all point handles updated first, because of how auto handles use neighboring points
                 node.calc_handles()   
-            for node in connected_points:  #this actually doubly updaes the middle segment, but it's just bez interp, no cutting
+            for node in connected_points:  #this actually doubly updates the middle segment, but it's just bez interp, no cutting
                 node.update_splines()
                 
             self.spline_net.push_to_input_net(self.net_ui_context, self.input_net, all_segs = False)
@@ -1621,9 +1621,7 @@ class AITeeth_UI_Tools():
         world_loc = self.net_ui_context.hovered_mesh['world loc']
         local_loc = self.net_ui_context.hovered_mesh['local loc']
         self.network_cutter.add_seed(face_ind, world_loc, local_loc)
-    
-    
-    
+   
     def click_enter_salience_paint(self, delete = False):
         if self.net_ui_context.hovered_mesh == {}: return
         
@@ -1687,7 +1685,7 @@ class AITeeth_UI_Tools():
          
     def paint_confirm_greedy(self):
         '''
-        destroy all Iput elements touched by brush
+        destroy all Input elements touched by brush
         add brush accum geometry to active patch
         remove brush accumg geometry from other patches
         '''
@@ -1784,10 +1782,10 @@ class AITeeth_UI_Tools():
       
     def paint_confirm_mergey(self):
         '''
-        destroy all Iput elements touched by brush
+        destroy all Input elements touched by brush
         add brush accum geometry to active patch
         merge any patches touched into active patch
-        this prevents adjacnet patches until we have the cutting mechancis
+        this prevents adjacent patches until we have the cutting mechanics
         to support it
         '''
         
@@ -1909,7 +1907,7 @@ class AITeeth_UI_Tools():
                 patch.uncolor_patch()
                 patch.color_patch()
         
-        #ensure no 0 face paches
+        #ensure no 0 face patches
         remove_patches = []
         for patch in self.network_cutter.face_patches:
             if len(patch.patch_faces) == 0:
